@@ -23,6 +23,7 @@ public class Utility {
                     JSONObject provinceData = allProvince.getJSONObject(i);
                     province.setProvinceCode(provinceData.getInt("id"));
                     province.setProvinceName(provinceData.getString("name"));
+                    //存入数据库
                     province.save();
                 }
                 return true;
@@ -67,9 +68,8 @@ public class Utility {
                     JSONObject countyData = allCounty.getJSONObject(i);
                     county.setCityId(cityId);
                     county.setCountyName(countyData.getString("name"));
-                    county.setWeatherId(countyData.getString("weather"));
+                    county.setWeatherId(countyData.getString("weather_id"));
                     county.save();
-                    return true;
                 }
                 return true;
             } catch (JSONException e) {
